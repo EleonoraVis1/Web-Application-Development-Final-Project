@@ -1,3 +1,5 @@
+The website is about the history of running and a healthy lifestyle
+
 The website is built using TypeScript. Vite was also used but there were too many files associated with it, making them impossible to upload. The TypeScript files is in "src" directory and were built into JavaScript files.
 
 HTML files are kept in backend/api/templates.
