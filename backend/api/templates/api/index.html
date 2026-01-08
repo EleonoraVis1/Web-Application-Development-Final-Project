@@ -1,0 +1,284 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'api/style.css' %}">
+    
+    <title>Running History</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>Running History</h1>
+      <p class="subtitle">Eleonora Višnevskytė · 793917</p>
+    </header>
+    <button onclick="logout()">Logout</button>
+    <div class="row1">
+      <div class="column1">
+        <h2>Website Structure & Navigation</h2>
+          <ul class="nav-list">
+            <li><a href="#H1">Timeline</a></li>
+            <li><a href="#H2">What Runner Are You?</a></li>
+            <li><a href="#H3">Vote For Your Favourite Runner!</a></li>
+            <li><a href="#H4">Running Experience</a></li>
+            <li><a href="#H5">The Craziest Running Experience</a></li>
+            <li><a href="#H6">Running Memes</a></li>
+            <li><a href="#H7">Nutrition Section</a></li>
+            <li><a href="#H8">Mileage Plan Calculator</a></li>
+            <li><a href="#H9">Learn about Runners</a></li>
+            <li><a href="#H10">Website Statistics</a></li>
+            <li><a href="#H11">Rate the Website</a></li>
+        </ul>
+      </div>
+      <div class="column1">
+        <h2>Welcome!</h2>
+        <p>This website is meant to introduce you to Running History and offer you some engaging activities to find out more about running and healthy lifestyle in general.</p>
+      </div>
+    </div>
+    <h2 id="H1">Running Timeline</h2>
+    <div class="timeline"></div>
+    <div id="timelineReferences"></div>
+    <div class="row2">
+      <h2 id="H2">What Runner Are You?</h2>
+      <div class="quiz">
+        <div class="quiz-container">
+            <div class="question">Question will appear here</div>
+            <div class="options"></div>
+            <div class="result">Your spirit runner is: <span id="score"></span></div>
+            <img id="image" src="" />
+            <div class="runner-info"></div>
+            <button class="restart-btn">Restart Quiz</button>
+        </div>
+      </div>
+    </div>
+    <div class="row2">
+      <h2 id="H3">Vote for your favourite runner!</h2>
+    </div>
+
+    <div class="poll-container">
+        <h1 class="poll-question">Who's Your Favourite Runner?</h1>
+
+        <form id="poll-form" class="poll-form">
+            <div id="runner-options"></div>
+            <button type="submit" class="vote-button">Vote</button>
+        </form>
+        <div id="results" class="results">
+            <h2 class="results-title">Results</h2>
+            <div id="results-list" class="results-count"></div>
+        </div>
+        <p id="vote-message"></p>
+    </div>
+    <div class="row2">
+      <h2 id="H4">Running Experience</h2>
+    </div>
+
+    <div class="row4" style="margin-bottom: 20px;">
+      <input 
+          id="story-search-input"
+          placeholder="Search running stories..."
+          style="padding: 8px; width: 60%; max-width: 400px;"
+      >
+      <button id="story-search-btn" class="stories-button">Search</button>
+      <button id="story-show-all-btn" class="stories-button" style="margin-left: 10px;">
+          Show All
+      </button>
+    </div>
+
+    <div class="row4">
+      <div class="column5">
+        <h2>Shared Experience</h2>
+        <div class="reviews" id="reviews"></div>
+      </div>
+
+      <div class="column4">
+        <div class="stories-container">
+          <p>Share your running experience:</p>
+          <textarea id="review" placeholder="Write your experience here"></textarea>
+          <button class="stories-button" id="submit">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row2">
+      <h2 id="H5">The Craziest Running Experience</h2>
+      <div class="crazy-container" id="crazy"></div>
+    </div>
+
+    <div class="row2">
+      <h2 id="H6">Running Memes</h2>
+      <div id="myBtnContainer">
+        <button class="btn active" value="all"> Show all</button>
+        <button class="btn" value="gediminas"> Gedinimas Truskauskas</button>
+        <button class="btn" value="usain"> Usain Bolt</button>
+        <button class="btn" value="eliud"> Eliud Kipchoge</button>
+        <button class="btn" value="general"> General</button>
+      </div>
+    </div>
+
+    <div id="content"></div>
+    <div id="upload-meme">
+      <h3>Upload a Meme</h3>
+      <input type="text" id="meme-title" placeholder="Title (optional)">
+      <select id="meme-category">
+          <option value="general">General</option>
+          <option value="gediminas">Gediminas Truskauskas</option>
+          <option value="usain">Usain Bolt</option>
+          <option value="eliud">Eliud Kipchoge</option>
+      </select>
+      <input type="file" id="meme-image" accept="image/*">
+      <button id="upload-btn">Upload Meme</button>
+    </div>
+    <div class="gallery" id="gallery"></div>
+    <div id="pagination"></div>
+    <div class="row2">
+      <h2 id="H7">The Nutrition Section</h2>
+      <p>Proper nutrition is an essential part of any professional runner's life. However, everyone should take care of their nutrition if they want to be healthy. Before learning more about healthy eating, you can test your knowledge by taking a quiz.</p>
+      <div class="quiz">
+        <div class="quiz-container">
+        <div class="question2">Question will appear here</div>
+        <div class="options2"></div>
+        <div class="result2">Your score: <span id="score2">0</span></div>
+        <button class="restart-btn2">Restart Quiz</button>
+      </div>
+      </div>
+    </div>
+    <div class="row2">  
+      <h3>Healthy Foods</h3>
+      <p>Fruits and vegetables contain a wide variety of vitamins and minerals. Try to fill half your plate with fruits and vegetables. They can be chopped up and added to many dishes and are a good replacement for less healthy sides such as chips or fries.</p>
+      <p>Whole grains are high in dietary fiber and can help lower cholesterol and improve heart health. Easy examples include oats, corn tortillas and pre-cooked brown rice without salt added.</p>
+      <p>Beans and legumes and other plant-based proteins can help lower your risk of heart disease and obesity. Try adding beans such as black, kidney, or pinto to your dishes to bulk up both protein and fiber in your meals. Other examples include tofu, lentils, and unsweetened soy milk.</p>
+      <p>Nuts like unsalted almonds, walnuts, pistachios, pecans and hazelnuts contain healthy fats, protein and key nutrients that support heart and brain health.</p>
+      <p>Fish such as salmon, mackerel, cod, herring, trout, and fresh yellowfin tuna are rich in omega-3 fatty acids that can support heart and brain health and should be eaten without breading or frying at least twice a week as a replacement for less healthy options like fatty meats.</p>
+      <p>Lean meat from chicken, beef, pork or turkey are other good examples of protein-rich foods that are also important sources of B vitamins and iron. Trim visible fat from beef, pork and poultry in addition to removing any skin.</p>
+      <p>Dairy foods and dairy alternatives including low fat and fat free milk, yogurt and cheese give you protein, calcium and vitamin D to keep your heart and bones healthy. For plant-based milk alternatives, choose products that have been fortified with calcium and vitamins A and D, such as soy or almond milk.</p>
+      <p>Healthy Fats like those in some cooking oils can help lower your bad cholesterol when used instead of less healthy fats. They’re better for your heart than solid fats including butter or tropical oils like coconut oil.</p>
+      <p>Seasoning your meals using salt-free spices and herbs like cilantro, oregano or garlic isn’t only about taste. Herbs and spices, whether fresh or dried, can support good heart health, including being a great substitute for salt.</p>
+      <h3>What To Avoid</h3>
+      <ul>
+        <li>Sugar-sweetened drinks</li>
+        <li>Sodium and salty foods</li>
+        <li>Saturated fats</li>
+        <li>Fatty or processed red meats</li>
+        <li>Refined carbohydrates including added sugars and processed grain foods</li>
+        <li>Full-fat dairy products</li> 
+        <li>Tropical oils such as coconut oil and palm oil</li>
+      </ul>
+      <h2 id="H8">Mileage Plan Calculator</h2>
+
+      <div class="mileage-container" id="mil">
+        <form id="mileage-form" class="mileage-form">
+
+          <h2 class="mileage-question">How old are you?</h2>
+          <label><input type="radio" name="age" value="twentyless">Younger than 20</label>
+          <label><input type="radio" name="age" value="twentyforty">Between 20 and 50</label>
+          <label><input type="radio" name="age" value="fiftymore">Older than 50</label>
+
+          <h2 class="mileage-question">Have you ever had injuries from running?</h2>
+          <label><input type="radio" name="injury" value="yes">Yes</label>
+          <label><input type="radio" name="injury" value="no">No</label>
+
+          <h2 class="mileage-question">What's your desired mileage?</h2>
+          <textarea class="mileage-textarea" name="desiredMileage" id="desired-mileage"
+            placeholder="Write your desired mileage here"></textarea>
+
+          <br>
+          <button type="button" class="mileage-button" id="mileage-button">Submit</button>
+
+        </form>
+
+        <div id="mresults" class="mresults">
+          <h2 class="mresults-title">Your Mileage Plan</h2>
+          <div class="mileage" id="mileage"></div>
+        </div>
+        <div class="mileage-history-section">
+        <h2>Your Previous Mileage Plans</h2>
+
+        <div class="filters">
+          <label>Age Group:
+            <select id="age-filter">
+              <option value="">All</option>
+              <option value="twentyless">Under 20</option>
+              <option value="twentyforty">20-50</option>
+              <option value="fiftymore">50+</option>
+            </select>
+          </label>
+
+          <label>Sort by Desired Mileage:
+            <select id="sort-order">
+              <option value="">Latest</option>
+              <option value="asc">Ascending</option>
+              <option value="desc">Descending</option>
+            </select>
+          </label>
+
+          <button id="filter-mileage">Apply</button>
+        </div>
+
+        <table id="mileage-table">
+          <thead>
+            <tr>
+              <th>Desired</th>
+              <th>Start</th>
+              <th>Jump</th>
+              <th>Weeks</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    </div>
+    <div class="row5">
+      <div class="column6">
+        <h2 id="H9">Learn about Runners</h2>
+          <label for="runners">Choose a runner:</label>
+          <select class="select-runner" name="runners" id="runners">
+            <option disabled selected>Select a runner...</option>
+          </select><br><br>
+          <button type="submit-runner" class="runner-button" id="runner-button">Choose</button>
+      </div>
+      <div class="column7" id="result-bio"></div>
+      <div class="column8">
+        <div class="stories-container">
+          <h3>Can't find your runner? Add them!</h3>
+          <form id="add-runner-form" enctype="multipart/form-data">
+            <label>Name</label>
+            <br>
+            <input type="text" id="runner-name" required>
+            <br>
+            <label>Description</label>
+            <textarea id="runner-description"></textarea>
+            <label>Image (optional)</label>
+            <input type="file" id="runner-image" accept="image/*">
+            <button type="submit">Add Runner</button>
+          </form>
+          <p id="runner-message"></p>
+        </div>
+      </div>
+    </div>
+    <section id="stats">
+      <h2 id="H10">Website Statistics</h2>
+      <div id="stats-container"></div>
+    </section>
+    <div class="row2">
+      <h2 id="H11">Rate the Website</h2>
+      <div class="star-rating" id="starRating">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+      </div>
+      <p>Rating: <span id="starRatingValue">0</span> / 5</p>
+    </div>
+    <footer class="footer">
+      <p>Running History | Eleonora Visnevskyte</p>
+    </footer>
+  </body>
+  <script  type="module" src="{% static 'api/main.js' %}"></script>
+
+</html>

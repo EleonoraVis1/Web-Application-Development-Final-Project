@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'api/style.css' %}">
+</head>
+<body>
+
+<h2>Login</h2>
+
+<input id="username" type="text" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+
+<p id="message"></p>
+
+<script  type="module" src="{% static 'api/login.js' %}"></script>
+
+</body>
+</html>
