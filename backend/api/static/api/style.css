@@ -2,26 +2,43 @@
 h1 {
   text-align: center;
 }
-h2, h3 {
+
+h2 {
   padding-left: 10px;
+  margin-top: 10px;
+  border-left: 5px solid #4b84c1;
+  padding-left: 12px;
 }
+
+h3 {
+  margin-top: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #acb2ba;
+  background-color: #bdc7d5;
   font-family: Helvetica, sans-serif;
+  margin: 0;
+}
+
+main {
+  max-width: 1200px;
+  margin: auto;
 }
 p {
   padding-right: 3%;
 }
 .header {
   text-align: center;
-  background:  #96cba1;
+  background: linear-gradient(135deg,#96cba1,#7abf94);
   color: #1f1f1f;
-  padding: 40px 10px 30px;
+  padding: 50px 10px 35px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
-.header h1 {
-  font-size: 2.4rem;
-  letter-spacing: 0.5px;
-}
+
 .subtitle {
   margin-top: 6px;
   font-size: 1rem;
@@ -31,9 +48,10 @@ p {
 .footer {
   text-align: center;
   background: #daf0f4;
-  padding: 5px;
+  padding: 20px;
   font-size: 0.9rem;
   color: #333;
+  margin-top: 40px;
 }
 * {
   box-sizing: border-box;
@@ -47,29 +65,39 @@ p {
 }
 .nav-list a {
   color: #1d6b46;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-.nav-list a:hover {
-  color: #368f67;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
-.row1 {
- display: flex;
- background-color: #c9dfb4;
+.nav-list a:hover {
+  background: #96cba1;
+  color: #0a3a22;
 }
+
+
 .column1 {
   flex: 50%;
   margin-right: 10px;
 }
 
-.row2, .row3 {
- background-color: #c9dfb4;
-}
 
-.row4, .row5 {
- display: flex;
- background-color: #c9dfb4;
+.row, .row1, .row2, .row3, .row4, .row5 {
+  background-color: #c9dfb4;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 1200px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+.row5 {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background-color: #c9dfb4;
+  padding: 20px;
 }
 .column4 {
   flex: 50%;
@@ -113,13 +141,6 @@ p {
   justify-content: end;
 }
 
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 20px;
-  background: #c9dfb4;;
-}
 
 .answer {
   position: relative;
@@ -305,27 +326,7 @@ p {
 .vote-button:hover {
   background-color: #4395d3;
 }
-/*
-.results {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-}
 
-.results-title {
-    font-size: 20px;
-}
-
-.results-count {
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-.count {
-    font-weight: bold;
-}*/
 .results {
   margin-top: 20px;
   padding-top: 20px;
@@ -369,6 +370,19 @@ p {
     width: 400px;
 }
 
+button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
 textarea {
     width: 90%;
     padding: 10px;
@@ -396,13 +410,14 @@ textarea {
 }
 
 .review {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: white;
-    max-width: 300px;
-    word-wrap: break-word;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 10px 0;
+  background-color: white;
+  max-width: 300px;
+  word-wrap: break-word;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .username {
@@ -655,5 +670,53 @@ textarea {
   padding-top: 10px;
 }
 
+.register-container{
+  max-width: 350px;
+  margin: 120px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  text-align: center;
+}
 
+.register-container h2{
+  margin-bottom: 20px;
+}
+
+.register-container input{
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.register-container input:focus{
+  outline: none;
+  border-color: #4b84c1;
+}
+
+.register-btn{
+  width: 95%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  background: #4b84c1;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.register-btn:hover{
+  background: #3b6fa5;
+}
+
+#message{
+  margin-top: 12px;
+  font-size: 14px;
+}
 
